@@ -13,10 +13,10 @@ public class JPAUtil {
     private static EntityManagerFactory emf = buildEntityManagerFactory();
 
     private static EntityManagerFactory buildEntityManagerFactory() {
-        File fileProp = new File("src/main/resources/application.properties");
+//        File fileProp = new File("src/main/resources/application.properties");
         Properties jpaProp = new Properties();
         try {
-            jpaProp.load(new FileInputStream(fileProp));
+            jpaProp.load(JPAUtil.class.getResourceAsStream("/application.properties"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
